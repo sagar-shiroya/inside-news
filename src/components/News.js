@@ -75,7 +75,7 @@ export class News extends Component {
                 <div className='row'>
                     {!this.state.loading && this.state.articles.map((elements) => {
                         return <div key={elements.url} className="col-md-4">
-                        <NewsItem title={elements.title?elements.title:""} description={elements.description?elements.description:""} imageUrl={elements.urlToImage?elements.urlToImage:'https://www.vuelio.com/uk/wp-content/uploads/2019/02/Breaking-News.jpg'} newsUrl={elements.url} />
+                        <NewsItem title={elements.title?elements.title:""} description={elements.description?elements.description:""} imageUrl={elements.urlToImage?elements.urlToImage:'https://www.vuelio.com/uk/wp-content/uploads/2019/02/Breaking-News.jpg'} newsUrl={elements.url} author={elements.author?elements.author:'Unknown'} date={elements.publishedAt} source={elements.source.name}/>
                     </div>
                     })}
                 </div>
