@@ -88,7 +88,7 @@ export class News extends Component {
     render() {
         return (
             <>
-                <h1 className='text-center display-2' style={{margin: '35px 0'}}>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
+                <h1 className='text-center display-2' style={{margin: '35px 0', color: '#00203FFF'}}>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                 {console.log('Render method called.')}
                 {this.state.loading && <Spinner/>}
                 <InfiniteScroll

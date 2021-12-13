@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
+import '../App.css';
 
 export class NavBar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "rgb(14 191 226)", color:'white'}}>
+                <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "#00203FFF"}}>
                     <div className="container-fluid">
-                        <Link className="navbar-brand" to="/"><b>InsideNews</b></Link>
+                        <Link className="navbar-brand" to="/" style={{color:'#ADEFD1FF'}}><b>InsideNews</b></Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
