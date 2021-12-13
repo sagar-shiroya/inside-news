@@ -84,7 +84,6 @@ export class News extends Component {
             });
     }
 
-    setProgress
     render() {
         return (
             <>
