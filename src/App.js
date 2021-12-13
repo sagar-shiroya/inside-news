@@ -22,9 +22,9 @@ export default class App extends Component {
           <Router>
           <NavBar/>
           <LoadingBar
-            color='#f11946'
+            color='#ADEFD1FF'
             progress={this.state.progress}
-            length={4}
+            length={5}
           />
           <Switch>
             <Route exact path="/"><News setProgress={this.setProgress} key="home"  pageSize={this.pageSize} country={this.country} category="general"/></Route>
