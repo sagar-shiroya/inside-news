@@ -17,14 +17,19 @@ export class News extends Component {
         category: PropTypes.string
     }
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1,
             totalResults: 0,
         }
+        document.title = `${this.capitalizeFirstLetter(this.props.category)} - InsideNews`;
+    }
+
+    capitalizeFirstLetter = (str)=>{
+        return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
     async updateNews(){
@@ -39,7 +44,16 @@ export class News extends Component {
             loading: false});
     }
 
+    componentDidUpdate(){
+        console.log('News Component Updated!')
+    }
+
+    componentWillUnmount(){
+        console.log('News Component Died!')
+    }
+
     async componentDidMount(){
+        console.log('News Component has created!')
         this.updateNews();
     }
 
@@ -60,7 +74,8 @@ export class News extends Component {
     render() {
         return (
             <div className="container my-3">
-                <h1 className='text-center display-2' style={{margin: '35px 0'}}>InsideNews - Top Headlines</h1>
+                <h1 className='text-center display-2' style={{margin: '35px 0'}}>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
+                {console.log('Render method called.')}
                 {this.state.loading && <Spinner/>}
                 <div className='row'>
                     {!this.state.loading && this.state.articles.map((elements) => {
