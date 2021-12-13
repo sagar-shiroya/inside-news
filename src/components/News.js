@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export class News extends Component {
 
@@ -21,7 +22,7 @@ export class News extends Component {
         super(props);
         this.state = {
             articles: [],
-            loading: false,
+            loading: true,
             page: 1,
             totalResults: 0,
         }
@@ -86,22 +87,27 @@ export class News extends Component {
 
     render() {
         return (
-            <div className="container my-3">
+            <>
                 <h1 className='text-center display-2' style={{margin: '35px 0'}}>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                 {console.log('Render method called.')}
                 {this.state.loading && <Spinner/>}
-                <div className='row'>
-                    {!this.state.loading && this.state.articles.map((elements) => {
-                        return <div key={elements.url} className="col-md-4">
-                        <NewsItem title={elements.title?elements.title:""} description={elements.description?elements.description:""} imageUrl={elements.urlToImage?elements.urlToImage:'https://www.vuelio.com/uk/wp-content/uploads/2019/02/Breaking-News.jpg'} newsUrl={elements.url} author={elements.author?elements.author:'Unknown'} date={elements.publishedAt} source={elements.source.name}/>
+                <InfiniteScroll
+                    dataLength={this.state.articles.length}
+                    next={this.fetchMoreData}
+                    hasMore={this.state.articles.length !== this.state.totalResults}
+                    loader={<Spinner/>}
+                >
+                <div className="container">
+                    <div className='row'>
+                        {this.state.articles.map((elements) => {
+                            return <div key={elements.url} className="col-md-4">
+                            <NewsItem title={elements.title?elements.title:""} description={elements.description?elements.description:""} imageUrl={elements.urlToImage?elements.urlToImage:'https://www.vuelio.com/uk/wp-content/uploads/2019/02/Breaking-News.jpg'} newsUrl={elements.url} author={elements.author?elements.author:'Unknown'} date={elements.publishedAt} source={elements.source.name}/>
+                            </div>
+                        })}
                     </div>
-                    })}
                 </div>
-                <div className="container d-flex justify-content-around my-5">
-                    <button type="button" disabled={this.state.page<=1?true:false} className="btn btn-outline-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
-                    <button type="button" disabled={this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize)} className="btn btn-outline-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div>
-            </div>
+                </InfiniteScroll>
+            </>
         )
     }
 }
