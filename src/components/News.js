@@ -86,7 +86,7 @@ export class News extends Component {
 
     render() {
         return (
-            <>
+            <div className='container'>
                 <h1 className='text-center display-2' style={{margin: '35px 0', color: '#00203FFF'}}>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h1>
                 {console.log('Render method called.')}
                 {this.state.loading && <Spinner/>}
@@ -101,7 +101,7 @@ export class News extends Component {
                     <button type="button" disabled={this.state.page<=1?true:false} className="btn btn-outline-dark" onClick={this.handlePrevClick}>&larr; Previous</button>
                     <button type="button" disabled={this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize)} className="btn btn-outline-dark" onClick={this.handleNextClick}>Next &rarr;</button>
                 </div>
-            </>
+            </div>
         )
     }
 }
