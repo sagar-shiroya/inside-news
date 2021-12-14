@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import App from '../App';
 import '../App.css';
 
 export class NewsItem extends Component {
