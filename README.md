@@ -1,10 +1,13 @@
-# InsideNews App
+<h1 align="center" id="title">Inside-News</h1>
 
-This react application is based on class-based components.
+<p id="description">This application show news for different category with pagination as well as infinite scrolling. This react application is based on class-based components. This application will consume data from <https://newsapi.org/> API.</p>
 
-This application will consume data from <https://newsapi.org/> API.
+<h2>Project Screenshots:</h2>
 
-## Folder Structure
+![image](https://user-images.githubusercontent.com/14357087/147463868-00b9f377-0aa2-4ae7-8185-c9bf80b7ad2a.png)
+![image](https://user-images.githubusercontent.com/14357087/147463885-c5a74a25-fac0-43cd-bb52-9d312a44b3a7.png)
+
+<h2>Folder Structure:</h2>
 
 ```
 |-- README.md
@@ -31,3 +34,46 @@ This application will consume data from <https://newsapi.org/> API.
     |-- reportWebVitals.js
     `-- setupTests.js
 ```
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone the repository</p>
+
+```
+git clone https://github.com/sagar-shiroya/inside-news.git
+```
+
+<p>2. Go to directory</p>
+
+```
+cd inside-news
+```
+
+<p>3. Install Node Dependencies</p>
+
+```
+npm install
+```
+
+<p>4. Create .env.local file and add below line:</p>
+
+```
+REACT_APP_NEWS_API_KEY = News API Key here...
+```
+
+<p>5. Start the application</p>
+
+```
+npm run start
+```
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   React.js
+*   Bootstrap
+*   HTML
+*   CSS
