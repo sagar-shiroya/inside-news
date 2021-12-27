@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Inside-News</h1>
 
-<p id="description">This application show news for different category with pagination as well as infinite scrolling. This react application is based on class-based components. This application will consume data from <https://newsapi.org/> API.</p>
+<p id="description">This application show news for different category with pagination as well as infinite scrolling. This react application is based on class-based components. This application will consume data from https://newsapi.org API.</p>
 
 <h2>Project Screenshots:</h2>
 
